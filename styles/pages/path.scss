@@ -1,0 +1,142 @@
+@use "../global/" as *;
+@use "../global/variables" as *;
+
+.path-wrap {
+  background-color: $neutral-100;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 6rem 1rem;
+}
+
+.grid-layout {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.animation-wrap-mask {
+  overflow: hidden;
+}
+.animation-wrap {
+  transform: translate(-100%, 0);
+  opacity: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.experience-sub {
+  font-size: clamp(0.8rem, 0.8rem + 1vw, 0.9rem);
+  margin: 0.5rem 0;
+
+  &-wrap {
+    overflow: hidden;
+    align-self: flex-end;
+  }
+}
+
+.experience-sub2 {
+  position: relative;
+  color: $slate-700;
+  max-width: clamp(15rem, 15rem + 3cqw, 25rem);
+  align-self: flex-end;
+  border: 1px solid $slate-700;
+  border-radius: 0.5rem;
+  padding: 0 0.3rem;
+  font-size: clamp(0.8rem, 5vw, 0.9rem);
+  isolation: isolate;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 50px;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, 200%) rotate(30deg);
+    background-color: $slate-500;
+    transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+    z-index: -1;
+  }
+
+  &:hover {
+    color: $slate-100;
+    border: 1px solid $slate-300;
+  }
+
+  &:hover::before {
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+}
+
+.experience-content {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  flex-direction: column;
+
+  @include sp {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+
+  &-subtitle {
+    color: $slate-800;
+    font-size: clamp(1.2rem, 1.2rem + 1vw, 1.4rem);
+    padding: 0.2rem;
+    border-bottom: 1px solid $slate-500;
+    width: 95%;
+
+    &-mask {
+      overflow: hidden;
+    }
+  }
+
+  &-project {
+    color: $slate-900;
+    font-size: 1.1rem;
+    padding: 0.2rem;
+    margin-top: 2rem;
+  }
+
+  &-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+}
+
+.experience-solve {
+  color: $slate-500;
+  padding: 0.2rem;
+  display: inline-block;
+
+  &-title {
+    font-weight: bold;
+  }
+}
+
+.experience-tech {
+  color: $slate-500;
+  padding: 0.2rem;
+  display: flex;
+
+  &-title {
+    font-weight: bold;
+  }
+}
+
+.experience-stack {
+  display: inline-block;
+  background-color: #e0e7ff;
+  padding: 0rem 0.5rem;
+  border-radius: 0.5rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}

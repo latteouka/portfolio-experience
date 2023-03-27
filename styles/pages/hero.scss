@@ -1,0 +1,116 @@
+@use "../global/" as *;
+@use "../global/variables" as *;
+
+.hero-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+.hero-content {
+  display: flex;
+  flex: 1;
+  color: $color-font-light;
+
+  &_wrap {
+    position: relative;
+    width: max(60%, 480px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &_titles {
+    position: absolute;
+    left: 10%;
+    font-size: clamp(2.3rem, 5vw, 3.4rem);
+    line-height: clamp(3.3rem, 6vw, 3.8rem);
+
+    @include sp {
+      left: 5%;
+    }
+  }
+}
+
+.hero-bottom {
+  display: flex;
+  height: 25%;
+  width: 100%;
+  overflow: hidden;
+  justify-content: center;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+
+  @include sp {
+    flex-direction: column;
+  }
+
+  &-left {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: transparent;
+
+    @include sp {
+      width: 100%;
+    }
+  }
+
+  &-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: var(--noto-font);
+    width: 50%;
+    color: $color-font-light;
+    padding: 1rem 2rem;
+
+    @include sp {
+      width: 100%;
+    }
+  }
+
+  &-line {
+    height: 1px;
+    width: 100%;
+    margin: 0.5rem auto;
+    background-color: white;
+  }
+
+  &-place {
+    display: flex;
+    justify-content: space-between;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+  }
+}
+
+.hero-loop {
+  position: relative;
+  display: inline-block;
+
+  &-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+
+    &:hover {
+      background: linear-gradient(
+        90deg,
+        red,
+        orange,
+        yellow,
+        green,
+        blue,
+        purple
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+  }
+}

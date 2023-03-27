@@ -1,0 +1,117 @@
+@use "../global/" as *;
+@use "../global/variables" as *;
+
+$container-offset: 100px;
+$glow-line-color: #fff;
+$glow-line-thickness: 2px;
+$glow-line-length: 45px;
+$glow-blur-color: #f8cfcf;
+$glow-blur-thickness: 10px;
+$glow-offset: 0px;
+$animation-speed: 1200ms;
+
+.skills-wrap {
+  background-color: $neutral-100;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding: 6rem 1rem;
+}
+
+.skills-content {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  flex-direction: column;
+
+  @include sp {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+
+  &-subtitle {
+    color: $slate-800;
+    font-size: clamp(1.2rem, 1.2rem + 1vw, 1.4rem);
+    padding: 0.2rem;
+    border-bottom: 1px solid $slate-500;
+    width: 95%;
+
+    &-mask {
+      overflow: hidden;
+    }
+  }
+
+  &-wrap {
+    margin: 1rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+}
+
+.skills-box {
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $slate-600;
+  padding: 0.5rem 1rem;
+  border-radius: 1.25rem;
+  background-color: $glow-blur-color;
+  position: relative;
+}
+
+.glow-container {
+  opacity: 0;
+  pointer-events: none;
+  inset: calc($container-offset / -2);
+  position: absolute;
+  width: calc(100% + $container-offset);
+  height: calc(100% + $container-offset);
+}
+
+.glow-blur,
+.glow-line {
+  width: calc(100% - $container-offset + $glow-offset);
+  height: calc(100% - $container-offset + $glow-offset);
+  x: calc($container-offset / 2 - calc($glow-offset / 2));
+  y: calc($container-offset / 2 - calc($glow-offset / 2));
+  //rx: 1.25rem;
+  fill: transparent;
+  stroke: black;
+  stroke-width: 5px;
+  stroke-dasharray: $glow-line-length calc(50px - $glow-line-length);
+}
+
+.glow-blur {
+  filter: blur(5px);
+  stroke: $glow-blur-color;
+  stroke-width: $glow-blur-thickness;
+}
+
+.glow-line {
+  stroke: $glow-line-color;
+  stroke-width: $glow-line-thickness;
+}
+
+.skills-box:is(:hover, :focus) :is(.glow-blur, .glow-line) {
+  stroke-dashoffset: 65px;
+  transition: stroke-dashoffset $animation-speed;
+}
+
+.skills-box:is(:hover, :focus) .glow-container {
+  animation: glow-visibility $animation-speed;
+}
+
+@keyframes glow-visibility {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
+}

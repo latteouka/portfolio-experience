@@ -1,0 +1,35 @@
+@use "../global/" as *;
+@use "../global/variables" as *;
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+
+  &-mask {
+    overflow: hidden;
+  }
+}
+
+.hr {
+  margin: 1rem 0;
+  height: 1px;
+  width: 98%;
+  border-bottom: 1px solid #000;
+}
+
+.links-wrap {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.3rem;
+  padding: 0.1rem;
+  color: $slate-500;
+}
+
+.links-icon {
+  font-size: 1.4rem;
+  cursor: pointer;
+
+  a {
+    color: $slate-600;
+    text-decoration: none;
+  }
+}
