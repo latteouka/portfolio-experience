@@ -3,6 +3,7 @@ import Stats from "three/examples/jsm/libs/stats.module";
 import { Conf } from "./conf";
 import { Update } from "../libs/update";
 import { FPS } from "../core/fps";
+import { TexLoader } from "../webgl/texLoader";
 
 export class Param {
   private static _instance: Param;
@@ -15,7 +16,9 @@ export class Param {
   private _stats: any;
 
   public main = {
-    progress: { value: 0, min: 0, max: 1 },
+    progress: { value: 0 },
+    skillAlpha: { value: 0 },
+    texture: { value: TexLoader.instance.get("/icons/js.png") },
   };
 
   constructor() {

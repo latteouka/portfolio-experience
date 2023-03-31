@@ -84,8 +84,12 @@ export class HeroBottom extends MyObject3D {
   }
 
   private _updateMesh() {
-    this._mesh.scale.set(this._width, this._height, 1);
-    this._mesh.position.set(this._position.x, this._position.y, 0.01);
+    this._mesh.scale.set(this._width, this._height * 2, 1);
+    this._mesh.position.set(
+      this._position.x,
+      this._position.y - this._height / 2,
+      0.01
+    );
   }
 
   protected _update(): void {

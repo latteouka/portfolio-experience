@@ -5,6 +5,8 @@ import { Update } from "../libs/update";
 import { Item } from "./Item";
 import { HeroBottom } from "./hero-bottom";
 import { NavBottom } from "./nav-bottom";
+import { SkillImage } from "./skillImage";
+import { SkillBack } from "./skillBack";
 
 export class Visual extends Canvas {
   private _con: Object3D;
@@ -17,9 +19,11 @@ export class Visual extends Canvas {
 
     const item = new Item();
     const hero = new HeroBottom();
+    const skillBack = new SkillBack();
     const nav = new NavBottom();
+    const skillImage = new SkillImage();
 
-    this._con.add(item, hero, nav);
+    this._con.add(item, hero, nav, skillImage, skillBack);
 
     this._resize();
   }

@@ -11,7 +11,7 @@ import { AnimationWrapper, Sub, Sub2 } from "./Parts";
 
 const Path = () => {
   const { setActive } = useNavbarStore();
-  const { ref, inView } = useInView({ threshold: 0.1 });
+  const { ref, inView } = useInView({ threshold: 0.2 });
 
   useUkabu(".experience-content-subtitle");
   useUkabu(".experience-sub");
@@ -284,6 +284,18 @@ const Path = () => {
               <Links
                 link="https://r3f-simple-editor.vercel.app/"
                 github="https://github.com/latteouka/r3f-simple-editor"
+              />
+            </AnimationWrapper>
+
+            <AnimationWrapper>
+              <div className="experience-content-project">Shader Light</div>
+              <Solve>為網站點盞燈吧。</Solve>
+              <Tech>
+                <Stack stacks={["Next.js", "three", "shaders"]} color="green" />
+              </Tech>
+              <Links
+                link="https://ariel.chundev.com/"
+                github="https://github.com/latteouka/ariel"
               />
             </AnimationWrapper>
           </div>

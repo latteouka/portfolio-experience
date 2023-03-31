@@ -1,13 +1,12 @@
 import * as THREE from "three";
-import vertex from "../glsl/hero.vert";
-import fragment from "../glsl/hero.frag";
+import vertex from "../glsl/image.vert";
+import fragment from "../glsl/image.frag";
 import { MyObject3D } from "../webgl/myObject3D";
 import { Update } from "../libs/update";
-import { Func } from "../core/func";
 import { Param } from "../core/param";
 import { MousePointer } from "../core/mousePointer";
 
-export class NavBottom extends MyObject3D {
+export class SkillImage extends MyObject3D {
   private _mesh: THREE.Mesh;
   private _width: number;
   private _height: number;
@@ -16,7 +15,7 @@ export class NavBottom extends MyObject3D {
   constructor() {
     super();
 
-    const dom = document.querySelector(".nav-bottom")!;
+    const dom = document.querySelector(".skills-content-image")!;
     this._width = dom.getBoundingClientRect().width;
     this._height = dom.getBoundingClientRect().height;
     const geometry = new THREE.PlaneGeometry(1, 1);
@@ -24,24 +23,30 @@ export class NavBottom extends MyObject3D {
       vertexShader: vertex,
       fragmentShader: fragment,
       uniforms: {
-        u_Time: { value: Update.instance.cnt },
+        u_time: { value: Update.instance.cnt },
         u_progress: {
           value: 0,
         },
         u_mouse: {
           value: new THREE.Vector2(),
         },
-        u_lightPos: {
-          value: new THREE.Vector3(0, 50, 200),
+        u_texture: {
+          value: Param.instance.main.texture.value,
         },
-        u_lightColor: {
-          value: new THREE.Color(0xffffff),
+        u_alpha: {
+          value: Param.instance.main.skillAlpha.value,
         },
-        u_color: {
-          value: new THREE.Color(0x000000),
+        u_velX: {
+          value: MousePointer.instance.velocityAlways.x,
         },
-        u_lightIntensity: {
-          value: 1,
+        u_velY: {
+          value: MousePointer.instance.velocityAlways.y,
+        },
+        u_radius: {
+          value: 0.5,
+        },
+        u_spikes: {
+          value: 1.5,
         },
       },
     });
@@ -51,9 +56,10 @@ export class NavBottom extends MyObject3D {
   }
 
   private _updateWidthHeight() {
-    const dom = document.querySelector(".nav-bottom")!;
+    const dom = document.querySelector(".skills-content-image")!;
     this._width = dom.getBoundingClientRect().width;
     this._height = dom.getBoundingClientRect().height;
+    // calculate position from dom position(center point)
     this._position = {
       x:
         -window.innerWidth / 2 +
@@ -68,7 +74,7 @@ export class NavBottom extends MyObject3D {
   }
 
   private _updateMesh() {
-    this._mesh.scale.set(this._width, this._height, 1);
+    this._mesh.scale.set(this._width * 2, this._height * 2, 1);
     this._mesh.position.set(this._position.x, this._position.y, 0.01);
   }
 
@@ -79,12 +85,11 @@ export class NavBottom extends MyObject3D {
     this._updateMesh();
 
     const material = this._mesh.material as THREE.ShaderMaterial;
-    material.uniforms.u_progress.value = Param.instance.main.progress.value;
-    material.uniforms.u_lightPos.value.set(
-      MousePointer.instance.x - Func.instance.sw() / 2,
-      -MousePointer.instance.y + Func.instance.sh() / 2,
-      400
-    );
+    material.uniforms.u_texture.value = Param.instance.main.texture.value;
+    material.uniforms.u_velX.value = MousePointer.instance.velocityAlways.x;
+    material.uniforms.u_velY.value = MousePointer.instance.velocityAlways.y;
+    material.uniforms.u_time.value = Update.instance.elapsed;
+    material.uniforms.u_alpha.value = Param.instance.main.skillAlpha.value;
   }
 
   protected _resize(): void {

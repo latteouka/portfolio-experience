@@ -33,7 +33,7 @@ export class Item extends MyObject3D {
       uniforms: {
         u_Time: { value: Update.instance.cnt },
         u_texture: {
-          value: TexLoader.instance.get("/img/latte.png"),
+          value: TexLoader.instance.get("/img/latte.webp"),
         },
         u_resolution: {
           value: new THREE.Vector4(width, height, a1, a2),

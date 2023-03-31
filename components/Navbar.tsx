@@ -29,7 +29,7 @@ const Navbar = () => {
     <>
       <div className="nav-logo">
         <div className="nav-logo-wrap">
-          <Image width={50} height={50} src={logo} alt="logo" />
+          <Image width={35} height={35} src={logo} alt="logo" />
           <div className="bigball"></div>
           <div className="smallball"></div>
         </div>

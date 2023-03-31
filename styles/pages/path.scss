@@ -14,6 +14,9 @@
   grid-auto-columns: 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
 }
 
 .animation-wrap-mask {
@@ -133,10 +136,24 @@
 }
 
 .experience-stack {
+  cursor: pointer;
   display: inline-block;
   background-color: #e0e7ff;
   padding: 0rem 0.5rem;
   border-radius: 0.5rem;
   flex-wrap: nowrap;
   white-space: nowrap;
+
+  &:hover {
+    animation: bright-flash 0.5s linear;
+  }
+}
+
+@keyframes bright-flash {
+  0% {
+    filter: brightness(1.1);
+  }
+  100% {
+    filter: brightness(1);
+  }
 }
