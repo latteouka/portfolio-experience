@@ -11,6 +11,7 @@ export class HeroBottom extends MyObject3D {
   private _width: number;
   private _height: number;
   private _position: { x: number; y: number } = { x: 0, y: 0 };
+  private _resolution: THREE.Vector4 = new THREE.Vector4();
   oriY: number = 0;
 
   constructor() {
@@ -31,6 +32,8 @@ export class HeroBottom extends MyObject3D {
       a1 = 1;
       a2 = height / width / imageAspect;
     }
+    this._resolution = new THREE.Vector4(width, height, a1, a2);
+
     const geometry = new THREE.PlaneGeometry(1, 1);
     const material = new THREE.ShaderMaterial({
       vertexShader: vertex,
@@ -101,6 +104,7 @@ export class HeroBottom extends MyObject3D {
       -MousePointer.instance.y + Func.instance.sh() / 2,
       400
     );
+    material.uniforms.u_resolution.value.lerp(this._resolution, 0.05);
   }
 
   protected _resize(): void {
@@ -119,7 +123,6 @@ export class HeroBottom extends MyObject3D {
       a1 = 1;
       a2 = height / width / imageAspect;
     }
-    const material = this._mesh.material as THREE.ShaderMaterial;
-    material.uniforms.u_resolution.value.set(width, height, a1, a2);
+    this._resolution = new THREE.Vector4(width, height, a1, a2);
   }
 }
