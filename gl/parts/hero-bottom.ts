@@ -102,8 +102,8 @@ export class HeroBottom extends MyObject3D {
     );
     material.uniforms.u_resolution.value.lerp(this._resolution, 0.05);
 
-    this._width = lerp(this._width, this._scale.x, 0.05);
-    this._height = lerp(this._height, this._scale.y, 0.05);
+    this._width = lerp(this._width, this._scale.x, 0.1);
+    this._height = lerp(this._height, this._scale.y, 0.1);
     this.scale.set(this._width, this._height, 1);
   }
 
