@@ -26,7 +26,7 @@ export class Item extends MyObject3D {
       a1 = 1;
       a2 = height / width / imageAspect;
     }
-    this._resolution = new THREE.Vector4(width, height, a1, a2);
+    this._resolution.set(width, height, a1, a2);
     const geometry = new THREE.PlaneGeometry(1, 1);
     const material = new THREE.ShaderMaterial({
       vertexShader: vertex,
@@ -80,6 +80,6 @@ export class Item extends MyObject3D {
       a1 = 1;
       a2 = height / width / imageAspect;
     }
-    this._resolution = new THREE.Vector4(width, height, a1, a2);
+    this._resolution.set(width, height, a1, a2);
   }
 }

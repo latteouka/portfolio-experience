@@ -13,6 +13,7 @@ export class HeroBottom extends MyObject3D {
   private _height: number;
   private _position: { x: number; y: number } = { x: 0, y: 0 };
   private _resolution: THREE.Vector4 = new THREE.Vector4();
+  private _scale: THREE.Vector2 = new THREE.Vector2();
   oriY: number = 0;
 
   constructor() {
@@ -33,7 +34,9 @@ export class HeroBottom extends MyObject3D {
       a1 = 1;
       a2 = height / width / imageAspect;
     }
-    this._resolution = new THREE.Vector4(width, height, a1, a2);
+
+    this._scale.set(width, height);
+    this._resolution.set(width, height, a1, a2);
 
     const geometry = new THREE.PlaneGeometry(1, 1);
     const material = new THREE.ShaderMaterial({
@@ -74,21 +77,15 @@ export class HeroBottom extends MyObject3D {
 
   private _updateWidthHeight() {
     const dom = document.querySelector(".hero-bottom-left")!;
-    const { width, height, y } = dom.getBoundingClientRect();
-    this.scale.set(this._width, this._height, 1);
-    this._width = lerp(this._width, width, 0.1);
-    this._height = lerp(this._height, height, 0.1);
+    const { x, y } = dom.getBoundingClientRect();
+
+    // this._width = lerp(this._width, width, 0.1);
+    // this._height = lerp(this._height, height, 0.1);
     // calculate position from dom position(center point)
     this._position = {
-      x:
-        -window.innerWidth / 2 +
-        this._width / 2 +
-        dom.getBoundingClientRect().x,
+      x: -window.innerWidth / 2 + this._width / 2 + x,
 
-      y:
-        window.innerHeight / 2 -
-        this._height / 2 -
-        dom.getBoundingClientRect().y,
+      y: window.innerHeight / 2 - this._height / 2 - y,
     };
     this.position.set(this._position.x, this._position.y, 0.01);
 
@@ -106,6 +103,12 @@ export class HeroBottom extends MyObject3D {
       400
     );
     material.uniforms.u_resolution.value.lerp(this._resolution, 0.05);
+
+    const dom = document.querySelector(".hero-bottom-left")!;
+    const { width, height } = dom.getBoundingClientRect();
+    this._width = lerp(this._width, width, 0.1);
+    this._height = lerp(this._height, height, 0.1);
+    this.scale.set(this._width, this._height, 1);
   }
 
   protected _resize(): void {
@@ -124,6 +127,7 @@ export class HeroBottom extends MyObject3D {
       a1 = 1;
       a2 = height / width / imageAspect;
     }
-    this._resolution = new THREE.Vector4(width, height, a1, a2);
+    this._scale.set(width, height);
+    this._resolution.set(width, height, a1, a2);
   }
 }
