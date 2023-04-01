@@ -2,7 +2,6 @@ import * as THREE from "three";
 import vertex from "../glsl/item.vert";
 import fragment from "../glsl/item.frag";
 import { MyObject3D } from "../webgl/myObject3D";
-import { Update } from "../libs/update";
 import { Func } from "../core/func";
 import { TexLoader } from "../webgl/texLoader";
 import { Param } from "../core/param";

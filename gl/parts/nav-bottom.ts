@@ -2,7 +2,6 @@ import * as THREE from "three";
 import vertex from "../glsl/hero.vert";
 import fragment from "../glsl/hero.frag";
 import { MyObject3D } from "../webgl/myObject3D";
-import { Update } from "../libs/update";
 import { Func } from "../core/func";
 import { Param } from "../core/param";
 import { MousePointer } from "../core/mousePointer";
