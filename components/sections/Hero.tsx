@@ -60,7 +60,7 @@ const Hero = () => {
   }, [inView, setActive]);
 
   return (
-    <div className="hero-wrap about-wrap" ref={ref}>
+    <div className="hero-wrap about-wrap" ref={ref} id="about">
       <div className="hero-content">
         <div className="hero-content_wrap">
           <div className="hero-content_titles">

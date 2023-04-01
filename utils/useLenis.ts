@@ -10,7 +10,7 @@ const useLenis = () => {
   useEffect(() => {
     lenis.current = new Lenis({
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
-      smoothTouch: true,
+      // smoothTouch: true,
     });
 
     setLenis(lenis.current);

@@ -95,8 +95,8 @@ export class HeroBottom extends MyObject3D {
   protected _update(): void {
     super._update();
 
-    this._updateWidthHeight();
     this._updateMesh();
+    this._updateWidthHeight();
 
     const material = this._mesh.material as THREE.ShaderMaterial;
     material.uniforms.u_progress.value = Param.instance.main.progress.value;

@@ -15,7 +15,7 @@ const Contact = () => {
     }
   }, [inView, setActive]);
   return (
-    <div className="contact-wrap" ref={ref}>
+    <div className="contact-wrap" ref={ref} id="contact">
       <div className="grid-layout">
         <div className="contact-content">
           <Title title="CONTACT" />
