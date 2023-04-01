@@ -31,7 +31,6 @@ export class Item extends MyObject3D {
       vertexShader: vertex,
       fragmentShader: fragment,
       uniforms: {
-        u_Time: { value: Update.instance.cnt },
         u_texture: {
           value: TexLoader.instance.get("/img/latte.webp"),
         },

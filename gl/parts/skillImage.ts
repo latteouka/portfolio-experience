@@ -23,7 +23,6 @@ export class SkillImage extends MyObject3D {
       vertexShader: vertex,
       fragmentShader: fragment,
       uniforms: {
-        u_time: { value: Update.instance.cnt },
         u_progress: {
           value: 0,
         },
