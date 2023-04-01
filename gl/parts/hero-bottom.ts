@@ -5,6 +5,7 @@ import { MyObject3D } from "../webgl/myObject3D";
 import { Func } from "../core/func";
 import { Param } from "../core/param";
 import { MousePointer } from "../core/mousePointer";
+import { lerp } from "three/src/math/MathUtils";
 
 export class HeroBottom extends MyObject3D {
   private _mesh: THREE.Mesh;
@@ -75,8 +76,8 @@ export class HeroBottom extends MyObject3D {
     const dom = document.querySelector(".hero-bottom-left")!;
     const { width, height, y } = dom.getBoundingClientRect();
     this.scale.set(this._width, this._height, 1);
-    this._width = width;
-    this._height = height;
+    this._width = lerp(this._width, width, 0.1);
+    this._height = lerp(this._height, height, 0.1);
     // calculate position from dom position(center point)
     this._position = {
       x:
