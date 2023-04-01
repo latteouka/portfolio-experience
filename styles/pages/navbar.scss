@@ -120,6 +120,10 @@
   &:hover::after {
     transform: translate(-50%, -100%);
   }
+
+  @include sp {
+    cursor: none;
+  }
 }
 .nav-bottom {
   width: 100%;

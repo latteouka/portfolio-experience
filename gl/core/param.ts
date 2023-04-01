@@ -1,9 +1,11 @@
+import * as THREE from "three";
 import GUI from "lil-gui";
 import Stats from "three/examples/jsm/libs/stats.module";
 import { Conf } from "./conf";
 import { Update } from "../libs/update";
 import { FPS } from "../core/fps";
 import { TexLoader } from "../webgl/texLoader";
+import Lenis from "@studio-freight/lenis";
 
 export class Param {
   private static _instance: Param;
@@ -18,7 +20,13 @@ export class Param {
   public main = {
     progress: { value: 0 },
     skillAlpha: { value: 0 },
-    texture: { value: TexLoader.instance.get("/icons/js.png") },
+    texture: {
+      value: TexLoader.instance.get("/icons/js.png"),
+      type: "object",
+    },
+    scroll: { value: new Lenis(), type: "object" },
+    hero: { value: new THREE.Object3D(), type: "object" },
+    skillBack: { value: new THREE.Object3D(), type: "object" },
   };
 
   constructor() {
@@ -63,6 +71,8 @@ export class Param {
       if (val.use == undefined) {
         if (val.type == "color") {
           folder.addColor(val, "value").name(key);
+        } else if (val.type == "object") {
+          return;
         } else {
           if (val.list != undefined) {
             folder.add(val, "value", val.list).name(key);

@@ -2,7 +2,6 @@ import * as THREE from "three";
 import vertex from "../glsl/hero.vert";
 import fragment from "../glsl/hero.frag";
 import { MyObject3D } from "../webgl/myObject3D";
-import { Update } from "../libs/update";
 import { Func } from "../core/func";
 import { Param } from "../core/param";
 import { MousePointer } from "../core/mousePointer";
@@ -12,6 +11,7 @@ export class HeroBottom extends MyObject3D {
   private _width: number;
   private _height: number;
   private _position: { x: number; y: number } = { x: 0, y: 0 };
+  oriY: number = 0;
 
   constructor() {
     super();
@@ -36,7 +36,6 @@ export class HeroBottom extends MyObject3D {
       vertexShader: vertex,
       fragmentShader: fragment,
       uniforms: {
-        u_Time: { value: Update.instance.cnt },
         u_resolution: {
           value: new THREE.Vector4(width, height, a1, a2),
         },
@@ -63,12 +62,18 @@ export class HeroBottom extends MyObject3D {
 
     this._mesh = new THREE.Mesh(geometry, material);
     this.add(this._mesh);
+
+    Param.instance.main.hero.value = this;
+
+    this._updateWidthHeight();
   }
 
   private _updateWidthHeight() {
     const dom = document.querySelector(".hero-bottom-left")!;
-    this._width = dom.getBoundingClientRect().width;
-    this._height = dom.getBoundingClientRect().height;
+    const { width, height, y } = dom.getBoundingClientRect();
+    this.scale.set(this._width, this._height, 1);
+    this._width = width;
+    this._height = height;
     // calculate position from dom position(center point)
     this._position = {
       x:
@@ -81,22 +86,13 @@ export class HeroBottom extends MyObject3D {
         this._height / 2 -
         dom.getBoundingClientRect().y,
     };
-  }
+    this.position.set(this._position.x, this._position.y, 0.01);
 
-  private _updateMesh() {
-    this._mesh.scale.set(this._width, this._height * 2, 1);
-    this._mesh.position.set(
-      this._position.x,
-      this._position.y - this._height / 2,
-      0.01
-    );
+    this.oriY = window.innerHeight / 2 - this._height / 2 - y - window.scrollY;
   }
 
   protected _update(): void {
     super._update();
-
-    this._updateMesh();
-    this._updateWidthHeight();
 
     const material = this._mesh.material as THREE.ShaderMaterial;
     material.uniforms.u_progress.value = Param.instance.main.progress.value;
@@ -111,7 +107,6 @@ export class HeroBottom extends MyObject3D {
     super._resize();
 
     this._updateWidthHeight();
-    this._updateMesh();
 
     const imageAspect = 853 / 1280;
     const width = Func.instance.sw();

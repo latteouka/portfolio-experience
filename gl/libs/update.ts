@@ -4,7 +4,7 @@ export class Update {
   private static _instance: Update;
 
   // count and elapsed time
-  public cnt: number = 0;
+  // public cnt: number = 0;
   private _clock: THREE.Clock;
   public elapsed: number = 0;
 
@@ -29,6 +29,10 @@ export class Update {
     this._updateList.push(f);
   }
 
+  public addFirst(f: Function) {
+    this._updateList.unshift(f);
+  }
+
   public remove(f: Function) {
     const arr: Array<Function> = [];
     this._updateList.forEach((val) => {
@@ -41,7 +45,7 @@ export class Update {
 
   _update = () => {
     if (this.play) {
-      this.cnt++;
+      // this.cnt++;
       this.elapsed = this._clock.getElapsedTime();
       for (var item of this._updateList) {
         if (item != null) item();
