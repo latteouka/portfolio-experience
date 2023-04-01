@@ -7,6 +7,7 @@ import { MousePointer } from "@/gl/core/mousePointer";
 import { gsap } from "gsap";
 import { TexLoader } from "@/gl/webgl/texLoader";
 import { Param } from "@/gl/core/param";
+import { Func } from "@/gl/core/func";
 
 const skills = [
   { name: "Javascript", path: "/icons/js.png" },
@@ -99,7 +100,7 @@ const Box = ({ children, path }: BoxProps) => {
 
   function leave() {
     gsap.to(Param.instance.main.skillAlpha, {
-      value: 0,
+      value: Func.instance.sw() > 800 ? 0 : 1,
       duration: 1,
     });
   }
