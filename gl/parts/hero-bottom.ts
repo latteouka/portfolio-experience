@@ -35,7 +35,7 @@ export class HeroBottom extends MyObject3D {
       a2 = height / width / imageAspect;
     }
 
-    this._scale.set(width, height);
+    this._scale.set(this._width, this._height);
     this._resolution.set(width, height, a1, a2);
 
     const geometry = new THREE.PlaneGeometry(1, 1);
@@ -79,8 +79,6 @@ export class HeroBottom extends MyObject3D {
     const dom = document.querySelector(".hero-bottom-left")!;
     const { x, y } = dom.getBoundingClientRect();
 
-    // this._width = lerp(this._width, width, 0.1);
-    // this._height = lerp(this._height, height, 0.1);
     // calculate position from dom position(center point)
     this._position = {
       x: -window.innerWidth / 2 + this._width / 2 + x,
@@ -104,10 +102,8 @@ export class HeroBottom extends MyObject3D {
     );
     material.uniforms.u_resolution.value.lerp(this._resolution, 0.05);
 
-    const dom = document.querySelector(".hero-bottom-left")!;
-    const { width, height } = dom.getBoundingClientRect();
-    this._width = lerp(this._width, width, 0.1);
-    this._height = lerp(this._height, height, 0.1);
+    this._width = lerp(this._width, this._scale.x, 0.05);
+    this._height = lerp(this._height, this._scale.y, 0.05);
     this.scale.set(this._width, this._height, 1);
   }
 
@@ -127,7 +123,11 @@ export class HeroBottom extends MyObject3D {
       a1 = 1;
       a2 = height / width / imageAspect;
     }
-    this._scale.set(width, height);
+    const dom = document.querySelector(".hero-bottom-left")!;
+    this._scale.set(
+      dom.getBoundingClientRect().width,
+      dom.getBoundingClientRect().height
+    );
     this._resolution.set(width, height, a1, a2);
   }
 }
