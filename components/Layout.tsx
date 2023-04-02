@@ -1,3 +1,4 @@
+import Loading from "./Loading";
 import Navbar from "./Navbar";
 
 interface LayoutProps {
@@ -6,6 +7,8 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="main-container">
+      <Loading />
+
       <div className="sticky-content pseudo"></div>
       <div className="sticky-content">
         <Navbar />
