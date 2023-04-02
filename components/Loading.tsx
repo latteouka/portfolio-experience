@@ -29,6 +29,9 @@ const Loading = () => {
     gsap.to(ref.current, {
       opacity: 0,
       duration: 1.4,
+      onComplete: () => {
+        lenis?.start();
+      },
     });
   }, [imagesPreloaded]);
   return <div className="loading" ref={ref}></div>;
