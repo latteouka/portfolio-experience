@@ -28,10 +28,10 @@ const Cursor = () => {
 
   function enter() {
     gsap.to(inner1.current, {
-      r: 30,
+      r: 50,
     });
     gsap.to(inner2.current, {
-      r: 30,
+      r: 50,
     });
     tl.current?.restart();
   }
@@ -59,8 +59,7 @@ const Cursor = () => {
         gsap.to(cursor2.current, {
           x: cursorPos.x - bound / 2,
           y: cursorPos.y - bound / 2,
-          duration: 1,
-          ease: "expo",
+          duration: 0.6,
         });
       }
       window.addEventListener("mousemove", move);
@@ -86,7 +85,7 @@ const Cursor = () => {
         })
         .to(turbulenceValue.current, {
           turbulence: 0,
-          duration: 0.8,
+          duration: 1.3,
           ease: "expo",
           startAt: { turbulence: 10 },
         });
