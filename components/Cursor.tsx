@@ -59,7 +59,7 @@ const Cursor = () => {
         gsap.to(cursor2.current, {
           x: cursorPos.x - bound / 2,
           y: cursorPos.y - bound / 2,
-          duration: 0.4,
+          duration: 1,
           ease: "expo",
         });
       }
@@ -86,7 +86,8 @@ const Cursor = () => {
         })
         .to(turbulenceValue.current, {
           turbulence: 0,
-          duration: 0.6,
+          duration: 0.8,
+          ease: "expo",
           startAt: { turbulence: 10 },
         });
 
