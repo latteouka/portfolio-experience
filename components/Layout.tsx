@@ -1,3 +1,4 @@
+import Cursor from "./Cursor";
 import Loading from "./Loading";
 import Navbar from "./Navbar";
 
@@ -7,6 +8,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="main-container">
+      <Cursor />
       <Loading />
 
       <div className="sticky-content pseudo"></div>

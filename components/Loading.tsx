@@ -26,13 +26,31 @@ const Loading = () => {
   useEffect(() => {
     lenis?.stop();
     if (!imagesPreloaded) return;
-    gsap.to(ref.current, {
-      opacity: 0,
-      duration: 1.4,
-      onComplete: () => {
-        lenis?.start();
-      },
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline();
+
+      tl.to(ref.current, {
+        opacity: 0,
+        duration: 1,
+      });
+      tl.fromTo(
+        document.querySelector(".nav-title-about"),
+        { y: 100 },
+        {
+          y: 0,
+          duration: 0.7,
+          onComplete: () => {
+            lenis?.start();
+          },
+        },
+        "<0.1"
+      );
     });
+
+    return () => {
+      ctx.revert();
+    };
   }, [imagesPreloaded]);
   return <div className="loading" ref={ref}></div>;
 };

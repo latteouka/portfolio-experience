@@ -41,28 +41,36 @@ const Navbar = () => {
             data-title="ABOUT"
             onClick={() => scrollTo("about")}
           >
-            <a href="#about">ABOUT</a>
+            <a href="#about" className="nav-title-about">
+              ABOUT
+            </a>
           </div>
           <div
             className="nav-title"
             data-title="EXPERIENCE"
             onClick={() => scrollTo("experience")}
           >
-            <a href="#experience">EXPERIENCE</a>
+            <a href="#experience" className="nav-title-experience">
+              EXPERIENCE
+            </a>
           </div>
           <div
             className="nav-title"
             data-title="SKILLS"
             onClick={() => scrollTo("skills")}
           >
-            <a href="#skills">SKILLS</a>
+            <a href="#skills" className="nav-title-skills">
+              SKILLS
+            </a>
           </div>
           <div
             className="nav-title"
             data-title="CONTACT"
             onClick={() => scrollTo("contact")}
           >
-            <a href="#contact">CONTACT</a>
+            <a href="#contact" className="nav-title-contact">
+              CONTACT
+            </a>
           </div>
         </div>
       </div>

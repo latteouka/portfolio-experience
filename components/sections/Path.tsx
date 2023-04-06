@@ -158,7 +158,7 @@ const Path = () => {
                 github="https://github.com/latteouka/tangobox-lagacy"
               />
               <Sub2>
-                自己處理前後端，為了高同步性也挑戰了很少見的 CouchDB。
+                自己處理前後端，也挑戰了 CouchDB、MongoDB、GraphQL等不同技術。
               </Sub2>
             </AnimationWrapper>
 
@@ -193,7 +193,9 @@ const Path = () => {
                 github="https://github.com/latteouka/tangobox-app"
               />
 
-              <Sub2>訂閱人數18人😭</Sub2>
+              <Sub2>
+                訂閱人數18人，月活約200人😭。成功守護了Apple Developer Program。
+              </Sub2>
             </AnimationWrapper>
 
             <AnimationWrapper>

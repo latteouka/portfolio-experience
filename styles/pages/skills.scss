@@ -73,6 +73,10 @@ $animation-speed: 1200ms;
   border-radius: 1.25rem;
   background-color: $glow-blur-color;
   position: relative;
+
+  @include sp {
+    cursor: none;
+  }
 }
 
 .glow-container {
