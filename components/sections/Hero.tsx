@@ -112,7 +112,8 @@ const Hero = () => {
         <div className="hero-bottom-left"></div>
         <div className="hero-bottom-right">
           <div className="hero-bottom-intro">
-            I am always doing things I can't do, that's how I get to do them.
+            I am always doing things I can&apos;t do, that&apos;s how I get to
+            do them.
           </div>
           <div className="hero-bottom-line"></div>
           <div className="hero-bottom-place">
