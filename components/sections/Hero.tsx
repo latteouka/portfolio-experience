@@ -112,13 +112,12 @@ const Hero = () => {
         <div className="hero-bottom-left"></div>
         <div className="hero-bottom-right">
           <div className="hero-bottom-intro">
-            I can speak both English and Japanese. Actually, I learn more from
-            Japanese resources regarding WebGL!
+            I am always doing things I can't do, that's how I get to do them.
           </div>
           <div className="hero-bottom-line"></div>
           <div className="hero-bottom-place">
-            <div>Taiwan</div>
-            <div>Tsai Yi Chun</div>
+            <div></div>
+            <div>Pablo Picasso</div>
           </div>
         </div>
       </div>

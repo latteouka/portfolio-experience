@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import { useEffect, useRef } from "react";
 import { Noto_Sans_JP, Anton, Outfit } from "next/font/google";
 import useLenis from "@/utils/useLenis";
+import Head from "next/head";
 
 const notojp = Noto_Sans_JP({
   weight: ["400", "700"],
@@ -27,6 +28,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <main className={`${notojp.variable} ${anton.variable}`}>
+      <Head>
+        <title>chundev</title>
+      </Head>
       <Component {...pageProps} />
     </main>
   );
