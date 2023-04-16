@@ -300,6 +300,21 @@ const Path = () => {
                 github="https://github.com/latteouka/ariel"
               />
             </AnimationWrapper>
+            <AnimationWrapper>
+              <div className="experience-content-project">
+                Page Transition in Next.js with GSAP
+              </div>
+              <Solve>
+                不用其他函式庫，並讓three.js元素一起加入表演。同時也處理了Preload等問題，詳見Github頁，這個Prototype讓我學到非常多。
+              </Solve>
+              <Tech>
+                <Stack stacks={["Next.js", "three", "shaders"]} color="green" />
+              </Tech>
+              <Links
+                link="https://transition.chundev.com/"
+                github="https://github.com/latteouka/three-transition-next"
+              />
+            </AnimationWrapper>
           </div>
         </div>
       </div>

@@ -21,8 +21,11 @@ const Contact = () => {
           <Title title="CONTACT" />
           <div className="contact-content-wrap">
             <div className="adv">
-              <p>I never stop learning new things.</p>
-              <p>I LOVE programming!</p>
+              <p>I am looking for a full-time frontend job right now.</p>
+              <p>
+                At the same time, I am still learning new things everyday to be
+                better dealing with WebGL.
+              </p>
             </div>
             <div className="contacts">
               <div className="email">oukalatte@gmail.com</div>
