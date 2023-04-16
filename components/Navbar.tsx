@@ -2,22 +2,21 @@ import Image from "next/image";
 import logo from "../public/img/logo.png";
 import { useNavbarStore } from "@/store/navbarStore";
 import { useEffect } from "react";
-import { useLenisStore } from "@/store/lenisStore";
+import { Param } from "@/gl/core/param";
 
 const Navbar = () => {
   const { active, setActive } = useNavbarStore();
-  const { lenis } = useLenisStore();
 
   function scrollTo(target: string) {
     const targetElement = document.querySelector(`.${target}-wrap`);
     setActive(target.toUpperCase());
-    lenis?.scrollTo(targetElement);
+    Param.instance.main.scroll.value.scrollTo(targetElement);
   }
 
   useEffect(() => {
     const titles = document.querySelectorAll(".nav-title") as any;
 
-    titles.forEach((title: any, index: number) => {
+    titles.forEach((title: any) => {
       if (title.dataset.title === active) {
         title.style.setProperty("--navTitleColor", "#1e293b");
       } else {
