@@ -189,7 +189,7 @@ const Path = () => {
                 <Stack stacks={["React Native", "RevenueCat"]} color="pink" />
               </Tech>
               <Links
-                link="https://old.chundev.com/jpbox"
+                link="https://www.chundev.com/jpbox"
                 github="https://github.com/latteouka/tangobox-app"
               />
 
@@ -207,7 +207,7 @@ const Path = () => {
                 <Stack stacks={["React Native", "RevenueCat"]} color="pink" />
               </Tech>
               <Links
-                link="https://old.chundev.com/dorasha"
+                link="https://www.chundev.com/dorasha"
                 github="https://github.com/latteouka/dorasha"
               />
             </AnimationWrapper>
@@ -224,7 +224,7 @@ const Path = () => {
                 />
               </Tech>
               <Links
-                link="https://old.chundev.com/automaker"
+                link="https://www.chundev.com/automaker"
                 github="https://github.com/latteouka/chundevcom/blob/main/pages/automaker/index.tsx"
               />
               <Sub2>用交易量收手續費！但FTX後來...</Sub2>
