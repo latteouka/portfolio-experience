@@ -7,7 +7,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import useUkabu from "@/utils/useUkabu";
-import { AnimationWrapper, Sub, Sub2 } from "./Parts";
+import { AnimationWrapper, Sub, Sub2, Sub2Link } from "./Parts";
 
 const Path = () => {
   const { setActive } = useNavbarStore();
@@ -189,7 +189,7 @@ const Path = () => {
                 <Stack stacks={["React Native", "RevenueCat"]} color="pink" />
               </Tech>
               <Links
-                link="https://www.chundev.com/jpbox"
+                link="https://old.chundev.com/jpbox"
                 github="https://github.com/latteouka/tangobox-app"
               />
 
@@ -207,7 +207,7 @@ const Path = () => {
                 <Stack stacks={["React Native", "RevenueCat"]} color="pink" />
               </Tech>
               <Links
-                link="https://www.chundev.com/dorasha"
+                link="https://old.chundev.com/dorasha"
                 github="https://github.com/latteouka/dorasha"
               />
             </AnimationWrapper>
@@ -224,7 +224,7 @@ const Path = () => {
                 />
               </Tech>
               <Links
-                link="https://www.chundev.com/automaker"
+                link="https://old.chundev.com/automaker"
                 github="https://github.com/latteouka/chundevcom/blob/main/pages/automaker/index.tsx"
               />
               <Sub2>用交易量收手續費！但FTX後來...</Sub2>
@@ -239,7 +239,9 @@ const Path = () => {
             <Sub>I find my true love!</Sub>
 
             <AnimationWrapper>
-              <div className="experience-content-project">心之所向官網</div>
+              <div className="experience-content-project">
+                心之所向法式甜點官網
+              </div>
               <Solve>
                 參考網路上 three.js 教學，並用 react-three-fiber
                 改寫，也學習使用 Blender 繪製 3D 場景。
@@ -254,7 +256,9 @@ const Path = () => {
                 link="https://www.lecoeur-patisserie.com/index2"
                 github="https://github.com/latteouka/lecoeur"
               />
-              <Sub2>Blender也太好玩了吧！</Sub2>
+              <Sub2Link link="https://www.instagram.com/lecoeur_patisserie/">
+                Blender也太好玩了吧！BTW, 這是我妹跟妹婿的甜點店。
+              </Sub2Link>
             </AnimationWrapper>
 
             <AnimationWrapper>
@@ -289,17 +293,17 @@ const Path = () => {
               />
             </AnimationWrapper>
 
-            <AnimationWrapper>
-              <div className="experience-content-project">Shader Light</div>
-              <Solve>為網站點盞燈吧。</Solve>
-              <Tech>
-                <Stack stacks={["Next.js", "three", "shaders"]} color="green" />
-              </Tech>
-              <Links
-                link="https://ariel.chundev.com/"
-                github="https://github.com/latteouka/ariel"
-              />
-            </AnimationWrapper>
+            {/* <AnimationWrapper> */}
+            {/*   <div className="experience-content-project">Shader Light</div> */}
+            {/*   <Solve>為網站點盞燈吧。</Solve> */}
+            {/*   <Tech> */}
+            {/*     <Stack stacks={["Next.js", "three", "shaders"]} color="green" /> */}
+            {/*   </Tech> */}
+            {/*   <Links */}
+            {/*     link="https://ariel.chundev.com/" */}
+            {/*     github="https://github.com/latteouka/ariel" */}
+            {/*   /> */}
+            {/* </AnimationWrapper> */}
             <AnimationWrapper>
               <div className="experience-content-project">
                 Page Transition in Next.js with GSAP

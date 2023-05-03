@@ -106,6 +106,16 @@ const Cursor = () => {
         active.addEventListener("mouseenter", enter);
         active.addEventListener("mouseleave", leave);
       });
+      actives = document.querySelectorAll(".experience-sub2");
+      actives.forEach((active) => {
+        active.addEventListener("mouseenter", enter);
+        active.addEventListener("mouseleave", leave);
+      });
+      actives = document.querySelectorAll(".skills-box");
+      actives.forEach((active) => {
+        active.addEventListener("mouseenter", enter);
+        active.addEventListener("mouseleave", leave);
+      });
     });
 
     return () => {
